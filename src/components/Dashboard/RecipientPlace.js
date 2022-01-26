@@ -1,11 +1,9 @@
 import React from "react";
-import { useFolder } from "../../contexts/ShopContext";
-import { useParams } from "react-router-dom";
+import { useRecipient } from "../../contexts/RecipientContext";
 import Recipient from "./Recipient";
 
 const RecipientPlace = () => {
-  const { folderId } = useParams();
-  const { recipients, cartItems } = useFolder(folderId);
+  const { recipients, cartItems } = useRecipient();
   console.log(cartItems)
 
   return (

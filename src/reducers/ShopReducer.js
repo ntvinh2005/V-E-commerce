@@ -26,16 +26,6 @@ const ShopReducer = (state, action) => {
         ...state,
         childItems: payload.childItems,
       };
-    case "SET_RECIPIENTS":
-      return {
-        ...state,
-        recipients: payload.recipients,
-      };
-    case "SET_CART":
-      return {
-        ...state,
-        cartItems: payload.cartItems,
-      };
     default:
       return state;
   }

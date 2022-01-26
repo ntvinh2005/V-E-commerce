@@ -3,7 +3,6 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { database, storage } from "../../firebase";
 import { useAuth } from "../../contexts/AuthContext";
 import { ROOT_FOLDER } from "../../contexts/ShopContext";
-import AddFile from "./AddFile";
 
 const AddShopFolder = ({ currentFolder }) => {
   const [open, setOpen] = useState(false);
