@@ -9,6 +9,7 @@ const ShopReducer = (state, action) => {
         childItems: [],
         childFolders: [],
         recipients: [],
+        cartItems: [],
       };
     case "UPDATE_FOLDER":
       return {
@@ -29,6 +30,11 @@ const ShopReducer = (state, action) => {
       return {
         ...state,
         recipients: payload.recipients,
+      };
+    case "SET_CART":
+      return {
+        ...state,
+        cartItems: payload.cartItems,
       };
     default:
       return state;

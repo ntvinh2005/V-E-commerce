@@ -1,6 +1,20 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import { database } from "../../firebase"
 
 const Recipient = ({recipient}) => {
+  const [owner, setOwner] = useState(null);
+
+  const getUser = () => {
+    database.profile.where("uid", "==", recipient.item.userId).onSnapshot((snapshot) => {
+      setOwner(snapshot.docs.map(database.formatDoc));
+      console.log(snapshot.docs.map(database.formatDoc))
+    });
+  };
+
+  useEffect(() => {
+      getUser();
+  }, []);
+  
   return (
       <div className="text-center">
         <div className="card-item card-shadow">
@@ -20,6 +34,7 @@ const Recipient = ({recipient}) => {
             </svg>
             {recipient.item.name}
             <p>Description: {recipient.item.description}</p>
+            <p>Custommer's email: {owner!==null ? owner[0].email : "Unknown"}</p>
             <p>Date for trading: {recipient.date == undefined ? null : String(recipient.date.toDate())}</p>
             <p>Place for trading: {recipient.place}</p>
           </div>
