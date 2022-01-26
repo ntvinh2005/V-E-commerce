@@ -1,6 +1,7 @@
 import React from "react";
 import NavbarElement from "../Element/NavbarElement";
 import Shop from "../Shop/Shop";
+import RecipientPlace from "./RecipientPlace";
 import { Container } from "react-bootstrap";
 
 const Dashboard = () => {
@@ -12,7 +13,8 @@ const Dashboard = () => {
         <hr />
         <Shop></Shop>
         <hr />
-        <h3 className="ms-3">Your cart</h3>
+        <h3 className="ms-3">Customer's recipients</h3>
+        <RecipientPlace />
       </Container>
     </div>
   );

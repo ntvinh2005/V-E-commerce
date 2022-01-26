@@ -69,6 +69,12 @@ const Login = () => {
             Sign up
           </Link>
         </div>
+        <div className="w-100 text-center mt-2">
+          Or
+          <Link to="/mall" className="ms-2 text-decoration-none">
+            Visit us for window shopping
+          </Link>
+        </div>
       </div>
     </Container>
   );

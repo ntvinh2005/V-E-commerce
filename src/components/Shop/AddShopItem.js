@@ -9,7 +9,6 @@ const AddShopFolder = ({ currentFolder }) => {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [images, setImages] = useState("");
   const { user } = useAuth();
 
   const openModal = () => {
@@ -36,27 +35,13 @@ const AddShopFolder = ({ currentFolder }) => {
       real_path.push(currentFolder.name);
     }
 
-    console.log(real_path.join("/"));
-    await storage
-      .ref("files/" + user.uid + "/" + real_path.join("/"))
-      .listAll()
-      .then(async (res) => {
-        res.items.forEach(async (imageRef) => {
-          imageRef.getDownloadURL().then((url) => {
-            setImages(() => [...images, url]);
-          });
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-
+    
 
     await database.shop_item.add({
       name: name,
       description: description,
       createAt: database.getCurrentTimestamp(),
-      url: images[0],
+      url: '',
       folderId: currentFolder.id,
       userId: user.uid,
     });
@@ -101,12 +86,6 @@ const AddShopFolder = ({ currentFolder }) => {
                 onChange={(event) => setDescription(event.target.value)}
               />
             </Form.Group>
-            {name !== "" && description !== "" && (
-              <AddFile
-                currentFolder={currentFolder}
-                onChange={(event) => console.log(event.target.value)}
-              />
-            )}
           </Modal.Body>
           <Modal.Footer>
             <Button variant="success" type="submit">

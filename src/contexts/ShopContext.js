@@ -14,6 +14,7 @@ export function useFolder(folderId = null, folder = null) {
     folder,
     childFolders: [],
     childItems: [],
+    recipients: [],
   });
 
   useEffect(() => {
@@ -71,6 +72,20 @@ export function useFolder(folderId = null, folder = null) {
         })
     )
   }, [folderId, user])
+
+  useEffect(() => {
+    return (
+      database.recipient
+        .where("seller.uid", "==", user.uid)
+        .onSnapshot(snapshot => {
+          console.log(snapshot.docs.map(database.formatDoc), 231)
+          dispatch({
+            type: 'SET_RECIPIENTS',
+            payload: { recipients: snapshot.docs.map(database.formatDoc) },
+          })
+        })
+    )
+  }, [user])
 
   return ShopState;
 }

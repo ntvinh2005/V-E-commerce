@@ -10,13 +10,14 @@ import FolderBreadCrumb from "./FolderBreadCrumb";
 const Shop = () => {
   const { folderId } = useParams();
   const { folder, childFolders, childItems } = useFolder(folderId);
+
   return (
     <div>
       <div className="d-flex align-items-center justify-content-between">
         <h3 className="m-3">Your shop</h3>
         <div className="d-flex align-items-center me-3">
-          <AddShopFolder currentFolder={folder} className="me-3"/>
-          <AddShopItem currentFolder={folder} className="me-3"/>
+          <AddShopFolder currentFolder={folder} className="me-3" />
+          <AddShopItem currentFolder={folder} className="me-3" />
         </div>
       </div>
       <FolderBreadCrumb currentFolder={folder} />
@@ -42,7 +43,7 @@ const Shop = () => {
               style={{ maxWidth: "250px" }}
               className="p-2"
             >
-              <ShopItem item={childitem}></ShopItem>
+                <ShopItem item={childitem} currentFolder={folder}></ShopItem>
             </div>
           ))}
         </div>

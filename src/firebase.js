@@ -17,6 +17,8 @@ export const firestore = app.firestore();
 export const database = {
   shop_folder: firestore.collection("shop_folder"),
   shop_item: firestore.collection("shop_item"),
+  profile: firestore.collection("profile"),
+  recipient: firestore.collection("recipient"),
   formatDoc: (doc) => {
     return {
       id: doc.id,
