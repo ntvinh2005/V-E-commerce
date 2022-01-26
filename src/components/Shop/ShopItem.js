@@ -1,11 +1,15 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import AddFile from "./AddFile";
 import ItemInfo from "../Element/ItemInfo";
 import Recipient from "../Mall/Recipient";
-import { database } from '../../firebase'
+import DeleteButton from "./DeleteButton";
+import { database } from "../../firebase";
+import { useAuth } from "../../contexts/AuthContext";
 
 const ShopItem = ({ item, currentFolder }) => {
+  const { user } = useAuth();
   const [owner, setOwner] = useState(null);
+  console.log(item.url)
 
   const getUser = () => {
     database.profile.where("uid", "==", item.userId).onSnapshot((snapshot) => {
@@ -42,8 +46,12 @@ const ShopItem = ({ item, currentFolder }) => {
           <p>{item.description}</p>
         </div>
         <div className="card-item-footer">
-          <ItemInfo item={item} owner={owner}/>
-          <Recipient item={item} owner={owner}/>
+          <ItemInfo item={item} owner={owner} />
+          {owner !== null && owner[0].uid !== user.uid ? (
+            <Recipient item={item} owner={owner} />
+          ) : (
+            <DeleteButton id={item.id} downloadUrl={item.url}></DeleteButton>
+          )}
         </div>
       </div>
     </div>
