@@ -60,7 +60,7 @@ const Recipient = ({ item, owner }) => {
         className="text-center card-item card-shadow"
       >
         <div className="card-item-header card-item-image rounded-top">
-          {item.url !== "" ? <img src={item.url}></img> : null}
+          {item.url !== "" ? <img src={item.url} alt=""></img> : null}
         </div>
         <Form onSubmit={handleSubmit}>
           <Modal.Body>
@@ -87,6 +87,9 @@ const Recipient = ({ item, owner }) => {
               <DatePicker
                 selected={date}
                 onChange={(date) => setDate(date)}
+                showTimeSelect
+                timeFormat="HH:mm"
+                timeIntervals={15}
                 dateFormat="Pp"
               />
             </Form.Group>

@@ -7,9 +7,9 @@ import { database } from "../../firebase";
 import { useAuth } from "../../contexts/AuthContext";
 
 const ShopItem = ({ item, currentFolder }) => {
-  const { user } = useAuth();
+  let { user } = useAuth();
+  if (user === null) user = {id: 'nckscckcks', email: "Unknown"}
   const [owner, setOwner] = useState(null);
-  console.log(item.url)
 
   const getUser = () => {
     database.profile.where("uid", "==", item.userId).onSnapshot((snapshot) => {

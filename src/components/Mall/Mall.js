@@ -4,6 +4,8 @@ import SearchBar from "../Element/SearchBar";
 import { useMall } from "../../contexts/MallContext";
 import { Container } from "react-bootstrap";
 import ShopItem from "../Shop/ShopItem";
+import ChatbotBox from "../Element/Chat/ChatbotBox";
+import ChatBox from "../Element/Chat/ChatBox"
 
 const Mall = () => {
   const {
@@ -26,13 +28,18 @@ const Mall = () => {
                 style={{ maxWidth: "400px" }}
                 className="p-2"
               >
-                {childitem.url != "" && (
+                {childitem.url !== "" && (
                 <ShopItem item={childitem}></ShopItem>
               )}
               </div>
             ))}
           </div>
         )}
+        <ChatbotBox/>
+        <ChatBox/>
+        <br/>
+        <br/>
+        <br/>
       </Container>
     </div>
   );

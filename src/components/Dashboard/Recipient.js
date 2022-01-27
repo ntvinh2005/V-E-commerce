@@ -6,7 +6,7 @@ const Recipient = ({ recipient }) => {
 
   const getUser = () => {
     database.profile
-      .where("uid", "==", recipient.item.userId)
+      .where("uid", "==", recipient.custommer)
       .onSnapshot((snapshot) => {
         setOwner(snapshot.docs.map(database.formatDoc));
         console.log(snapshot.docs.map(database.formatDoc));

@@ -19,6 +19,7 @@ export const database = {
   shop_item: firestore.collection("shop_item"),
   profile: firestore.collection("profile"),
   recipient: firestore.collection("recipient"),
+  messages: firestore.collection("messages"),
   formatDoc: (doc) => {
     return {
       id: doc.id,

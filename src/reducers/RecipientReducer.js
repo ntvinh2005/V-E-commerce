@@ -1,4 +1,4 @@
-const ShopReducer = (state, action) => {
+const RecipientReducer = (state, action) => {
     const { type, payload } = action;
     console.log(payload);
     switch (type) {
@@ -16,4 +16,4 @@ const ShopReducer = (state, action) => {
         return state;
     }
   };
-  export default ShopReducer;
+  export default RecipientReducer;
