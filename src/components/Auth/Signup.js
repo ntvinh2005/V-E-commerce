@@ -28,9 +28,9 @@ const Signup = () => {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
           database.profile.add({
-              uid: user.uid,
-              email: user.email
-          })
+            uid: user.uid,
+            email: user.email,
+          });
         }
       });
 
@@ -42,7 +42,8 @@ const Signup = () => {
 
   return (
     <Container
-      className="d-flex align-items-center justify-content-center"
+      fluid
+      className="d-flex align-items-center justify-content-center mall-container"
       style={{ minHeight: "100vh" }}
     >
       <div className="w-100" style={{ maxWidth: "400px" }}>
@@ -80,13 +81,13 @@ const Signup = () => {
               </Button>
             </Form>
           </Card.Body>
+          <div className="w-100 text-center mt-2 mb-3">
+            Already have an account?{" "}
+            <Link to="/login" className="text-decoration-none">
+              Login
+            </Link>
+          </div>
         </Card>
-        <div className="w-100 text-center mt-2">
-          Already have an account?{" "}
-          <Link to="/login" className="text-decoration-none">
-            Login
-          </Link>
-        </div>
       </div>
     </Container>
   );

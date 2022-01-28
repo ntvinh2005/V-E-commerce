@@ -27,7 +27,8 @@ const Login = () => {
   };
   return (
     <Container
-      className="d-flex align-items-center justify-content-center"
+      fluid
+      className="d-flex align-items-center justify-content-center mall-container"
       style={{ minHeight: "100vh" }}
     >
       <div className="w-100" style={{ maxWidth: "400px" }}>
@@ -62,19 +63,19 @@ const Login = () => {
               </Button>
             </Form>
           </Card.Body>
+          <div className="w-100 text-center mt-2 mb-3">
+            Don't have an account?{" "}
+            <Link to="/signup" className="text-decoration-none">
+              Sign up
+            </Link>
+            <div className="w-100 text-center mt-2">
+              Or
+              <Link to="/mall" className="ms-2 text-decoration-none">
+                Visit us for window shopping
+              </Link>
+            </div>
+          </div>
         </Card>
-        <div className="w-100 text-center mt-2">
-          Don't have an account?{" "}
-          <Link to="/signup" className="text-decoration-none">
-            Sign up
-          </Link>
-        </div>
-        <div className="w-100 text-center mt-2">
-          Or
-          <Link to="/mall" className="ms-2 text-decoration-none">
-            Visit us for window shopping
-          </Link>
-        </div>
       </div>
     </Container>
   );

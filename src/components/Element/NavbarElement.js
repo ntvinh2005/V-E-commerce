@@ -6,7 +6,7 @@ import { useAuth } from "../../contexts/AuthContext";
 const NavbarElement = () => {
   const { user } = useAuth();
   return (
-    <Navbar bg="light" expand="lg" className="fixed-top shadow text-center">
+    <Navbar bg="light" expand="lg" className="fixed-top shadow text-center nav">
       <Navbar.Brand className="ms-3" as={Link} to="/mall">
         <img
           alt=""

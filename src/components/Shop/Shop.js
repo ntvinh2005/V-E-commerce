@@ -20,7 +20,7 @@ const Shop = () => {
           <AddShopItem currentFolder={folder} className="me-3" />
         </div>
       </div>
-      <FolderBreadCrumb currentFolder={folder} />
+      <FolderBreadCrumb currentFolder={folder}/>
       {childFolders.length > 0 && (
         <div className="d-flex flex-wrap">
           {childFolders.map((childfolder) => (

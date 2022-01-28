@@ -10,7 +10,7 @@ const Dashboard = () => {
   return (
     <div>
       <NavbarElement></NavbarElement>
-      <Container fluid>
+      <Container fluid className="mall-container">
         <h2 className="ms-3 mt-3">Dashboard</h2>
         <hr />
         <Shop></Shop>

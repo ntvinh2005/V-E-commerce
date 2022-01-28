@@ -8,8 +8,9 @@ const FolderBreadCrumb = ({ currentFolder }) => {
   if (currentFolder) path = [...path, ...currentFolder.path];
   return (
     <Breadcrumb
-      className="flex-grow-1"
-      listProps={{ className: "bg-white pl-0 m-0" }}
+      className="flex-grow-1 p-2 chat-bubble"
+      listProps={{ className: "pl-0 m-0" }}
+      style={{ background: 'none', width: 'fit-content'}}
     >
       {path.map((folder) => (
           <div className="d-flex" key={folder.id+Date.now()}>

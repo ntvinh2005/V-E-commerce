@@ -15,7 +15,7 @@ const Mall = () => {
   return (
     <div>
       <NavbarElement />
-      <Container fluid>
+      <Container fluid className="mall-container">
         <br />
         <br /> <br />
         <SearchBar className="mt-5" />

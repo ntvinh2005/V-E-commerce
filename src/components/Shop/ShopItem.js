@@ -8,7 +8,7 @@ import { useAuth } from "../../contexts/AuthContext";
 
 const ShopItem = ({ item, currentFolder }) => {
   let { user } = useAuth();
-  if (user === null) user = {id: 'nckscckcks', email: "Unknown"}
+  
   const [owner, setOwner] = useState(null);
 
   const getUser = () => {
