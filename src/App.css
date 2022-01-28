@@ -107,3 +107,11 @@ body {
 .bton + .bton {
   margin-left: 0.25rem;
 }
+
+.chat-bubble {
+  border-radius: 7px;
+  border-color: #333;
+  width: fit-content;
+  padding: 0.5rem;
+  margin: 0.5rem;
+} 

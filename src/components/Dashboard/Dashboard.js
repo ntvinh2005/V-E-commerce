@@ -3,6 +3,8 @@ import NavbarElement from "../Element/NavbarElement";
 import Shop from "../Shop/Shop";
 import RecipientPlace from "./RecipientPlace";
 import { Container } from "react-bootstrap";
+import ChatBox from "../Element/Chat/ChatBox"
+import ChatbotBox from "../Element/Chat/ChatbotBox"
 
 const Dashboard = () => {
   return (
@@ -14,7 +16,9 @@ const Dashboard = () => {
         <Shop></Shop>
         <hr />
         <h3 className="ms-3">Customer's recipients</h3>
-        <RecipientPlace />
+        <RecipientPlace/>
+        <ChatbotBox />
+        <ChatBox />
       </Container>
     </div>
   );

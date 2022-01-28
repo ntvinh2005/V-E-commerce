@@ -3,6 +3,7 @@ import { Card, Button, InputGroup, Form } from "react-bootstrap";
 import { robotThinking } from "./Chatbot";
 import { useAuth } from "../../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import Message from "./Message";
 
 const Chatbox = () => {
   let { user } = useAuth();
@@ -59,11 +60,19 @@ const Chatbox = () => {
             ></button>
           </Card.Header>
           <Card.Body className="overflow-auto">
-            {messages.map((message) => (
+            {messages.map((message, index) => (
               <div
                 key={String(Math.random() * 1000000000) + String(Date.now())}
               >
-                {message}
+                {index%2 !== 0 ? (
+                  <Message message={message} owner={"Robot"} color="#CAFBE8" />
+                ) : (
+                  <Message
+                    message={message}
+                    owner={user.email}
+                    color="#A0D0BD"
+                  />
+                )}
               </div>
             ))}
           </Card.Body>

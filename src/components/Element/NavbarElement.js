@@ -8,7 +8,7 @@ const NavbarElement = () => {
   return (
     <Navbar bg="light" expand="lg" className="fixed-top shadow text-center">
       <Navbar.Brand className="ms-3" as={Link} to="/mall">
-        V.Drive
+        V.K
       </Navbar.Brand>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav">
