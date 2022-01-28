@@ -34,13 +34,11 @@ const AddShopFolder = ({ currentFolder }) => {
       real_path.push(currentFolder.name);
     }
 
-    
-
     await database.shop_item.add({
       name: name,
       description: description,
       createAt: database.getCurrentTimestamp(),
-      url: '',
+      url: "",
       folderId: currentFolder.id,
       userId: user.uid,
     });

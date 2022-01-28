@@ -33,7 +33,7 @@ const Chatbox = () => {
           height="32"
           fillRule="currentColor"
           className="bi bi-chat-left-dots ms-3 fixed-bottom mb-3"
-          style={{cursor: "pointer"}}
+          style={{ cursor: "pointer" }}
           viewBox="0 0 16 16"
           onClick={() => setOpen(true)}
         >
@@ -69,7 +69,7 @@ const Chatbox = () => {
               <div
                 key={String(Math.random() * 1000000000) + String(Date.now())}
               >
-                {message.speakers[0]===user.email ? (
+                {message.speakers[0] === user.email ? (
                   <Message
                     message={message.message}
                     owner={message.speakers[0]}
@@ -89,12 +89,15 @@ const Chatbox = () => {
             <InputGroup>
               <textarea
                 type="form-control"
-                style={{ height: "40px" }}
+                style={{ height: "40px", width: "165px" }}
                 placeholder="Message to"
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
               />
-              <Button onClick={sendMessage.bind(this)}>
+              <Button
+                onClick={sendMessage.bind(this)}
+                className="input-group-text"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
