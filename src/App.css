@@ -1,7 +1,8 @@
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
 ::-webkit-scrollbar {
   width: 1em;
@@ -26,20 +27,34 @@ html, body {
   background-color: #555;
 }
 
+html,
 body {
-  background-color: #333;
-  color: #ccc;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.body {
+  background-color: #a4dc8b;
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow-x: hidden;
 }
 
 .nav {
-  background-color: #2B6575
+  background-color: #2b6575;
 }
 
 .mall-container {
-  background-image: linear-gradient(to left top, #00A0AC, #A4DC8B);
+  background-image: linear-gradient(to left top, #00a0ac, #a4dc8b);
   width: 100%;
-  font-family: 'Playfair Display', serif;
-  min-height: 100vh
+  font-family: "Playfair Display", serif;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  min-width: 100vw;
+  overflow-x: hidden;
 }
 
 .card-item {
@@ -47,13 +62,13 @@ body {
   border: 1px solid #777;
   border-radius: 0.25rem;
   overflow: hidden;
-  background-color: #E1F8D4;
+  background-color: #e1f8d4;
   transition: 500ms;
   transform: translateY(var(--translate-y, 0));
   transform-style: preserve-3d;
   cursor: pointer;
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
-  font-family: 'Times New Roman', Times, serif;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+  font-family: "Times New Roman", Times, serif;
 }
 
 .card-item:hover {
@@ -94,7 +109,6 @@ body {
 .card-item-body {
   font-size: 0.9rem;
   padding: 0 var(--padding);
-  
 }
 
 .card-item-footer {
@@ -138,4 +152,4 @@ body {
   width: fit-content;
   padding: 0.5rem;
   margin: 0.5rem;
-} 
+}
