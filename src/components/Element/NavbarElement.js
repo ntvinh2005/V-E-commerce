@@ -8,6 +8,13 @@ const NavbarElement = () => {
   return (
     <Navbar bg="light" expand="lg" className="fixed-top shadow text-center">
       <Navbar.Brand className="ms-3" as={Link} to="/mall">
+        <img
+          alt=""
+          src="favicon.ico"
+          width="30"
+          height="30"
+          className="d-inline-block align-top"
+        />{" "}
         V.K
       </Navbar.Brand>
 

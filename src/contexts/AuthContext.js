@@ -9,7 +9,7 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({id: "0", email: "guest@mail.com", password: "You don't need this"});
   const [loading, setLoading] = useState(true);
 
   function signup(email, password) {
@@ -38,7 +38,7 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const unsubcribe = auth.onAuthStateChanged((user) => {
-      setUser(user);
+      if (user!==null) setUser(user);
       setLoading(false);
     });
 

@@ -7,12 +7,6 @@ import Message from "./Message";
 
 const Chatbox = () => {
   let { user } = useAuth();
-  if (!user)
-    user = {
-      id: "bcjncknjk",
-      email: "guest@mail.com",
-      password: "You don't need it",
-    };
 
   const navigate = useNavigate();
 
