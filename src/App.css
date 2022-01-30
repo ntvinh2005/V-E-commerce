@@ -153,3 +153,7 @@ body {
   padding: 0.5rem;
   margin: 0.5rem;
 }
+
+input::-webkit-calendar-picker-indicator {
+  display: none !important;
+}

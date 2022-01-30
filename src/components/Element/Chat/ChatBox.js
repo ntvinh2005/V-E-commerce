@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Button, InputGroup, Form } from "react-bootstrap";
+import { Card, Button, InputGroup, Form, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useAuth } from "../../../contexts/AuthContext";
 import { useMessage } from "../../../contexts/MessageContext";
 import { database } from "../../../firebase";
@@ -10,13 +10,13 @@ const Chatbox = () => {
 
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
-  const [address, setAddress] = useState("guest@mail.com");
+  const [address, setAddress] = useState("developer@mail.com");
   const [{ messages }, getMessages] = useMessage(address);
 
   const sendMessage = async () => {
     database.messages
       .add({
-        speakers: [user.email, address],
+        speakers: { speaker: user.email, listener: address },
         message: message,
         createdAt: database.getCurrentTimestamp(),
       })
@@ -27,12 +27,13 @@ const Chatbox = () => {
   return (
     <div>
       {open === false ? (
+        <OverlayTrigger placement="top" overlay={<Tooltip>Click here to chat</Tooltip>}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="32"
           height="32"
           fillRule="currentColor"
-          className="bi bi-chat-left-dots ms-3 fixed-bottom mb-3"
+          className="bi bi-chat-left-dots ms-4 fixed-bottom mb-3"
           style={{ cursor: "pointer" }}
           viewBox="0 0 16 16"
           onClick={() => setOpen(true)}
@@ -40,6 +41,7 @@ const Chatbox = () => {
           <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
           <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
         </svg>
+        </OverlayTrigger>
       ) : (
         <Card
           className="fixed-bottom ms-3 mb-3"
@@ -65,20 +67,21 @@ const Chatbox = () => {
             </InputGroup>
           </Card.Header>
           <Card.Body className="overflow-auto">
+            {address === "developer@mail.com" && (<Message message={"Please change address 'TO' above to email that you want to send. Then click 'TO'"} owner="Robot" color="#A0D0BD"></Message>)}
             {messages.map((message) => (
               <div
                 key={String(Math.random() * 1000000000) + String(Date.now())}
               >
-                {message.speakers[0] === user.email ? (
+                {message.speakers.speaker === user.email ? (
                   <Message
                     message={message.message}
-                    owner={message.speakers[0]}
+                    owner={message.speakers.speaker}
                     color="#CAFBE8"
                   />
                 ) : (
                   <Message
                     message={message.message}
-                    owner={message.speakers[0]}
+                    owner={message.speakers.speaker}
                     color="#A0D0BD"
                   />
                 )}

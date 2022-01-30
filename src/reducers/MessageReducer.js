@@ -7,6 +7,12 @@ const ShopReducer = (state, action) => {
           ...state,
           messages: payload.messages,
         };
+      case "SET_NEW_MESSAGES":
+        console.log('Yeah')
+        return {
+          ...state,
+          recentMail: payload.recentMail,
+        }
       default:
         return state;
     }

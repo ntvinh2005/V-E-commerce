@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Button, InputGroup, Form } from "react-bootstrap";
+import { Card, Button, InputGroup, Form, OverlayTrigger, Tooltip} from "react-bootstrap";
 import { robotThinking } from "./Chatbot";
 import { useAuth } from "../../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -27,31 +27,39 @@ const Chatbox = () => {
   return (
     <div>
       {open === false ? (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          fillRule="currentColor"
-          className="bi bi-chat-dots-fill fixed-bottom ms-auto me-3 mb-3"
-          style={{ cursor: "pointer" }}
-          viewBox="0 0 16 16"
-          onClick={() => setOpen(true)}
+        <OverlayTrigger
+          placement="top"
+          overlay={<Tooltip>Hi {user.email}. Click here to chat with me</Tooltip>}
         >
-          <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
-        </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fillRule="currentColor"
+            className="bi bi-robot fixed-bottom ms-auto me-3 mb-3"
+            style={{ cursor: "pointer" }}
+            viewBox="0 0 16 16"
+            onClick={() => setOpen(true)}
+          >
+            <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25.286 25.286 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135Z" />
+            <path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z" />
+          </svg>
+        </OverlayTrigger>
       ) : (
         <Card
           className="fixed-bottom ms-auto me-3 mb-3"
           style={{ maxWidth: "250px", height: "300px" }}
         >
-          <Card.Header>
-            Messaging with Bots {"   "}
-            <button
-              type="button"
-              className="btn-close ms-4 me-0"
-              aria-label="Close"
-              onClick={() => setOpen(false)}
-            ></button>
+          <Card.Header className="align-items-center">
+            <InputGroup>
+              Messaging with Bots
+              <button
+                type="button"
+                className="btn-close ms-auto me-0"
+                aria-label="Close"
+                onClick={() => setOpen(false)}
+              ></button>
+            </InputGroup>
           </Card.Header>
           <Card.Body className="overflow-auto">
             {messages.map((message, index) => (

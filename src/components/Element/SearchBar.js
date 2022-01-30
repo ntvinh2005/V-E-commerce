@@ -1,31 +1,41 @@
 import React, { useState } from "react";
-import { useMall } from '../../contexts/MallContext'
+import { useMall } from "../../contexts/MallContext";
 import { Form, InputGroup, Button } from "react-bootstrap";
 
-const SearchBar = () => {
-    const [result, setResult] = useState('');
-    const {MallState: {allItems}, getItems} = useMall()
+const SearchBar = ({ datalist }) => {
+  const [result, setResult] = useState("");
+  const {
+    MallState: { allItems },
+    getItems,
+  } = useMall();
 
-    const onChangeSearchBar = async(event) => {
-        event.preventDefault();
-        setResult(event.target.value)
-    } 
+  const onChangeSearchBar = async (event) => {
+    event.preventDefault();
+    setResult(event.target.value);
+  };
 
-    const onSearch = async(result) => {
-        await getItems(result)
-        console.log(allItems)
-    }
+  const onSearch = async (result) => {
+    await getItems(result);
+    console.log(allItems);
+  };
 
   return (
     <div>
       <div className="bg-light searchArea shadow-sm p-3 mb-5 rounded mt-3">
         <InputGroup>
           <Form.Control
-            type="text"
+            type="search"
+            autoComplete="off"
             placeholder="Which product would you like to search"
-            onChange = {onChangeSearchBar}
+            onChange={onChangeSearchBar}
+            list="datalistOptions"
           />
-          <Button onClick = {onSearch.bind(this, result)}>
+          <datalist id="datalistOptions">
+            {datalist.map((item, index) => (
+              <option value={item} key={index} />
+            ))}
+          </datalist>
+          <Button onClick={onSearch.bind(this, result)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"

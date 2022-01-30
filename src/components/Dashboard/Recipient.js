@@ -64,7 +64,7 @@ const Recipient = ({ recipient }) => {
           </p>
           <p>
             Date for trading:{" "}
-            {recipient.date == undefined
+            {recipient.date === undefined
               ? null
               : String(recipient.date.toDate())}
           </p>
