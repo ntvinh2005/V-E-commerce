@@ -52,7 +52,7 @@ const Shop = () => {
           {childItems.map((childitem) => (
             <div
               key={childitem.id}
-              style={{ maxWidth: "250px" }}
+              style={{ minWidth: "250px" }}
               className="p-2"
             >
               <ShopItem item={childitem} currentFolder={folder}></ShopItem>

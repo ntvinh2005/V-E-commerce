@@ -57,10 +57,11 @@ const Recipient = ({ item, owner }) => {
       <Modal
         show={open}
         onHide={closeModal}
-        className="text-center card-item card-shadow"
+        className="text-center"
+        style={{maxHeight: "100vh"}}
       >
-        <div className="card-item-header card-item-image rounded-top">
-          {item.url !== "" ? <img src={item.url} alt=""></img> : null}
+        <div className="card rounded-top card-item-header card-item-image">
+          {item.url !== "" ? <img src={item.url} className="card-img-top" alt=""></img> : null}
         </div>
         <Form onSubmit={handleSubmit}>
           <Modal.Body>
