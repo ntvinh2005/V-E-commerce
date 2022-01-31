@@ -3,9 +3,7 @@ import { database, storage } from "../../firebase";
 import { Button } from "react-bootstrap";
 
 const DeleteButton = ({ id, downloadUrl }) => {
-  console.log(downloadUrl);
   function removeFile(id, downloadUrl) {
-    console.log(downloadUrl);
     const storageRefa = storage.refFromURL(downloadUrl);
 
     storageRefa
@@ -15,7 +13,6 @@ const DeleteButton = ({ id, downloadUrl }) => {
           .doc(id)
           .delete()
           .then((response) => {
-            console.log("delete response", response);
           })
           .catch((error) => {
             console.log("delete error", error);

@@ -50,12 +50,15 @@ const Shop = () => {
       {childItems.length > 0 && (
         <div className="d-flex flex-wrap">
           {childItems.map((childitem) => (
-            <div
-              key={childitem.id}
-              style={{ minWidth: "250px" }}
-              className="p-2"
-            >
-              <ShopItem item={childitem} currentFolder={folder}></ShopItem>
+            <div key={childitem.id} className="p-2">
+              <ShopItem
+                item={childitem}
+                currentFolder={folder}
+                style={{
+                  maxWidth: "fit-content!important",
+                  maxHeight: "fit-content!important",
+                }}
+              ></ShopItem>
             </div>
           ))}
         </div>

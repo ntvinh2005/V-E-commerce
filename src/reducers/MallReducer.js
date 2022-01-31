@@ -7,6 +7,11 @@ const MallReducer = (state, action) => {
                 ...state,
                 allItems: payload.allItems,
             }
+        {/*case 'SET_ALL_SHOP':
+            return { 
+                ...state,
+                allShops: payload.allShops,
+            }*/}
         case 'GET_CHILD':
             return { 
                 ...state,
