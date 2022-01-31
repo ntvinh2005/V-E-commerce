@@ -11,7 +11,7 @@ const RecipientPlace = () => {
       {recipients.length > 0 && (
         <div className="d-flex flex-wrap align-items-center justify-content-center text-center">
           {recipients.map((child) => (
-            <div key={child.id} style={{ maxWidth: "250px" }} className="p-2">
+            <div key={child.id} style={{ maxWidth: "400px" }} className="p-2">
               <Recipient recipient={child}></Recipient>
             </div>
           ))}
@@ -51,7 +51,7 @@ const RecipientPlace = () => {
       {cartItems.length > 0 && (
         <div className="d-flex flex-wrap align-items-center justify-content-center text-center">
           {cartItems.map((child) => (
-            <div key={child.id} style={{ maxWidth: "250px" }} className="p-2">
+            <div key={child.id} style={{ maxWidth: "400px" }} className="p-2">
               <Recipient recipient={child}></Recipient>
             </div>
           ))}
